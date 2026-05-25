@@ -6,7 +6,7 @@ small transverse velocity. One deterministic trajectory per (v0z, params) point.
 
 Search space:
   Delta0_2DMOT  ∈ [2.0, 3.0] Γ
-  power_2DMOT   ∈ [35, 55] mW  (N=6 upper-model optimum ~42–53 mW)
+  power_2DMOT   ∈ [25, 45] mW  (N=5 upper-model optimum ~35 mW; N=6 optimum ~42–53 mW)
 
 ZS is off (Delta0_zs = 0, power_zs_W = 0) in this stage.
 Results in optim-results/{timestamp}/.
@@ -39,7 +39,7 @@ VEL_THRESH = 5.0
 
 SPACE = [
     Real(2.0,   3.0,  name="Delta0_2DMOT"),
-    Real(35e-3, 55e-3, name="power_2DMOT"),
+    Real(25e-3, 45e-3, name="power_2DMOT"),
 ]
 
 tracker = {
@@ -189,7 +189,7 @@ def callback(res):
 if __name__ == "__main__":
     print(f"\n{'='*60}")
     print(f"  BO: 2DMOT detuning + power  (ZS off)")
-    print(f"  Search:  Δ2D ∈ [2.0,3.0]Γ   P_2D ∈ [35,55]mW")
+    print(f"  Search:  Δ2D ∈ [2.0,3.0]Γ   P_2D ∈ [25,45]mW")
     print(f"  Budget:  {N_INIT} init + {N_ITER} BO = {N_INIT+N_ITER} evals")
     print(f"  Results → {SAVE_DIR}/")
     print(f"{'='*60}\n")

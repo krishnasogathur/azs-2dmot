@@ -5,12 +5,14 @@ import matplotlib.pyplot as plt
 import time
 from config import *
 from physics import *
+from magnets import B_field_n5 as _B_active   # N=5 default; swap for B_field for N=6
 
 # -----------------------------------------------------------------------
-# Active parameters — upper model N=6 optimum (see optimization-results.txt)
+# Active parameters — upper model N=5 optimum (see optimization-results.txt)
+# For N=6: Delta0_zs ≈ 5.1 Γ, Delta0_2DMOT ≈ 2.7 Γ — swap B_field_n5 for B_field above
 # -----------------------------------------------------------------------
-Delta0_zs     = 5.1   # representative of 5.0–5.2 Γ range; see optimization-results.txt
-Delta0_2DMOT  = 2.7   # upper-model N=6 2DMOT-only optimum
+Delta0_zs     = 4.6   # representative of 4.5–4.8 Γ range; see optimization-results.txt
+Delta0_2DMOT  = 2.45  # upper-model N=5 2DMOT-only optimum
 
 Delta0_list = (Delta0_zs, Delta0_zs,
                Delta0_2DMOT, Delta0_2DMOT, Delta0_2DMOT, Delta0_2DMOT)
@@ -47,6 +49,7 @@ def capture_probability(v0z, Ni, dt_s=20e-6, t_tot=25e-3, output_dir=OUTPUT_DIR)
             x0=x0, v0=np.array([-1.0, 0.5, v0z]),
             dt=dt, n_steps=n_steps,
             Delta0=Delta0_list, s_list=s_list, k_beam=k_beam_list,
+            B_field_fn=_B_active,
         )
 
         x_trajs.append(x_traj)

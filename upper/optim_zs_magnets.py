@@ -42,8 +42,8 @@ CAP_THRESH = 0.5
 POS_THRESH = 0.005
 VEL_THRESH = 5.0
 
-DELTA0_2DMOT  = 2.7      # fixed from optim_2dmot (N=6 upper-model 2DMOT-only optimum)
-POWER_2DMOT_W = 42e-3    # fixed from optim_2dmot (N=6 upper-model 2DMOT-only optimum)
+DELTA0_2DMOT  = 2.45     # fixed from optim_2dmot (N=5 upper-model 2DMOT-only optimum)
+POWER_2DMOT_W = 35e-3    # fixed from optim_2dmot (N=5 upper-model 2DMOT-only optimum)
 DELTA_X_FIXED = 0.0      # fixed magnet offset (m); was a search param, now fixed
 
 SPACE = [

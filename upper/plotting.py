@@ -14,9 +14,10 @@ import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 from config import *
 from physics import *
+from magnets import B_field_n5 as _B_active   # N=5 default; swap for B_field for N=6
 
-Delta0_zs    = 5.1   # upper-model N=6 optimum
-Delta0_2DMOT = 2.7
+Delta0_zs    = 4.6   # upper-model N=5 optimum; for N=6 use 5.1 Γ
+Delta0_2DMOT = 2.45
 
 Delta0_list = (Delta0_zs, Delta0_zs,
                Delta0_2DMOT, Delta0_2DMOT, Delta0_2DMOT, Delta0_2DMOT)
@@ -29,7 +30,7 @@ s_list = (s_zs_top, s_zs_bottom,
 
 if __name__ == "__main__":
     x0   = np.array([0, 0, z0])
-    v0   = np.array([-1, 0.5, 155])
+    v0   = np.array([-1, 0.5, 148])
     dt_s = 20e-6
     t_tot = 25e-3
 
@@ -39,7 +40,7 @@ if __name__ == "__main__":
     t, x_traj, v_traj, det_p10, det_p11, det_m10, det_m11 = run_single_trajectory(
         x0=x0, v0=v0, dt=dt, n_steps=n_steps,
         Delta0=Delta0_list, s_list=s_list, k_beam=k_beam_list,
-        return_detunings=True,
+        return_detunings=True, B_field_fn=_B_active,
     )
 
     # beam saturation profiles along z-axis

@@ -34,7 +34,7 @@ I_sat        = 60
 CF25_diameter = 2.3e-2
 CF40_diameter = 3.9e-2
 
-zs_power  = 106e-3   # W per ZS beam  (upper-model N=6 optimum ~100–113 mW)
+zs_power  = 94e-3    # W per ZS beam  (upper-model N=5 optimum ~86–102 mW; N=6 is ~100–113 mW)
 w0_zs     = 2e-2 / 2
 
 s0_zs_top    = 2 * (zs_power / (np.pi * w0_zs**2)) / (I_sat * 1e1)
@@ -47,7 +47,7 @@ r0_zs_bottom = np.array([0, 0, -3e-2])
 w0_zs_top    = w0_zs
 w0_zs_bottom = w0_zs
 
-power_2DMOT = 42e-3   # W per beam  (upper-model N=6 2DMOT-only optimum)
+power_2DMOT = 35e-3   # W per beam  (upper-model N=5 2DMOT-only optimum; N=6 is ~42 mW)
 w0_2DMOT_1  = 1.5e-2 / 2
 
 s0_2DMOT_tr = 2 * (power_2DMOT / (np.pi * w0_2DMOT_1**2)) / (I_sat * 1e1)
