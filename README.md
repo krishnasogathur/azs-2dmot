@@ -26,7 +26,7 @@ Natural units used throughout: energy in ℏΓ, length in √(ℏ/mΓ), time in 
 
 The exact multi-beam, multi-detuning scattering rate is non-trivial because all beams share a common saturation denominator. We bracket it:
 
-**`lower/` — shared saturation (lower bound)**
+**`lower/` - shared saturation (lower bound)**
 
 ```
 s_tot = Σ_i s_i · I_q(i)          (raw sum, no detuning weighting)
@@ -35,7 +35,7 @@ R_q   = (Γ/2) · s_q / (1 + s_tot + (2Δ_q/Γ)²)
 
 Exact when all beams are equally detuned. Gives a **lower bound** on the true rate.
 
-**`upper/` — s_eff model (upper bound)**
+**`upper/` - s_eff model (upper bound)**
 
 ```
 s_eff_q  = s_i · I_q / (1 + (2Δ_q/Γ)²)
@@ -70,14 +70,14 @@ Each `magnets.py` defines two variants:
 Each of `lower/` and `upper/` is fully self-contained:
 
 ```
-config.py           — physical constants, beam vectors, saturation parameters
-physics.py          — scattering model + trajectory integrator (differs between lower/ and upper/)
-magnets.py          — magpylib magnetic field; B_field (static) and make_B_field (adjustable)
-runner.py           — capture probability sweep over initial axial velocity
-plotting.py         — single-atom diagnostic: vz(z), az(z), detuning panels
-optim_2dmot.py      — Stage 1 BO: ZS off, optimise 2DMOT detuning and power
-optim_zs_magnets.py — Stage 2 BO: 2DMOT fixed, optimise ZS detuning, power, magnet offset
-results/            — output directory for runner.py
+config.py           - physical constants, beam vectors, saturation parameters
+physics.py          - scattering model + trajectory integrator (differs between lower/ and upper/)
+magnets.py          - magpylib magnetic field; B_field (static) and make_B_field (adjustable)
+runner.py           - capture probability sweep over initial axial velocity
+plotting.py         - single-atom diagnostic: vz(z), az(z), detuning panels
+optim_2dmot.py      - Stage 1 BO: ZS off, optimise 2DMOT detuning and power
+optim_zs_magnets.py - Stage 2 BO: 2DMOT fixed, optimise ZS detuning, power, magnet offset
+results/            - output directory for runner.py
 ```
 
 ---
@@ -103,13 +103,13 @@ See `results-summary.txt` for the full parameter ranges and capture velocities f
 | Model | N | Δ_ZS (Γ) | Δ_2D (Γ) | P_ZS (mW) | P_2D (mW) | v_c (m/s) |
 |---|---|---|---|---|---|---|
 | Lower | 5 | 4.0–4.3 | 2.2–2.3 | 85–94 | 37–38 | ~131 |
-| Lower | 6 | — | 2.4–2.6 | — | 46–48 | ~54 (2DMOT only) |
+| Lower | 6 | - | 2.4–2.6 | - | 46–48 | ~54 (2DMOT only) |
 | Upper | 5 | 4.5–4.8 | 2.3–2.5 | 86–102 | 35–40 | ~150 |
 | Upper | 6 | 5.0–5.2 | 2.7 | 100–113 | 42 | ~155–158 |
 | Upper | 7 | 4.7–5.2 | 2.85 | 104–124 | 46 | ~157–165 |
 
 - N=7 was explored under the upper model only (overestimates; ruled out).
-- Lower-model ZS optimisation at N=6 has not been run — `lower/optim_zs_magnets.py` is configured and ready.
+- Lower-model ZS optimisation at N=6 has not been run - `lower/optim_zs_magnets.py` is configured and ready.
 - Decided experimental ZS detuning: **Δ_ZS ≈ 4.5 Γ** (between lower ~4.1 and upper ~4.7 optima).
 
 ---
