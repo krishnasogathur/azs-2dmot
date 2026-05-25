@@ -1,0 +1,81 @@
+MODEL:  Upper bound -- s_eff model (scattering_rate_multi in upper/physics.py)
+FIELD:  magpylib permanent NdFeB magnets, N=6 and N=7 per stack, ~42 and ~45 G/cm
+NOTE:   Contains both N=6 and N=7 results in the same file.
+        N=7 explored under upper model only (overestimates; ruled out as target).
+------------------------------------------------------------------------
+
+1. 2DMOT w/ N=6
+
+[INIT  |  eval  23/150]  ΔZS=0.00  Δ2D=2.60  P_2D=37.1mW  P_ZS=0.0mW  delta_x=-3.88mm  →  vc=53.0 m/s  (best: 54.0 m/s)
+[INIT  |  eval  73/150]  ΔZS=0.00  Δ2D=2.48  P_2D=39.8mW  P_ZS=0.0mW  delta_x=1.95mm  →  vc=54.0 m/s  (best: 60.0 m/s)
+[INIT  |  eval  88/150]  ΔZS=0.00  Δ2D=2.66  P_2D=38.3mW  P_ZS=0.0mW  delta_x=-1.64mm  →  vc=55.0 m/s  (best: 60.0 m/s)
+
+[INIT  |  eval  24/150]  ΔZS=0.00  Δ2D=2.72  P_2D=40.1mW  P_ZS=0.0mW  delta_x=-1.65mm  →  vc=55.0 m/s  (best: 55.0 m/s) ← NEW BEST
+[INIT  |  eval  30/150]  ΔZS=0.00  Δ2D=2.57  P_2D=42.3mW  P_ZS=0.0mW  delta_x=-0.94mm  →  vc=57.0 m/s  (best: 57.0 m/s) ← NEW BEST
+
+[INIT  |  eval  34/150]  ΔZS=0.00  Δ2D=2.50  P_2D=46.6mW  P_ZS=0.0mW  delta_x=-0.20mm  →  vc=57.0 m/s  (best: 57.0 m/s)
+
+*** near-optimal, lower-energy 2DMOT performance***
+
+[ITER  6  |  eval 106/150]  ΔZS=0.00  Δ2D=2.74  P_2D=42.3mW  P_ZS=0.0mW  delta_x=-2.20mm  →  vc=59.0 m/s  (best: 60.0 m/s)
+[ITER  2  |  eval 102/150]  ΔZS=0.00  Δ2D=2.72  P_2D=43.5mW  P_ZS=0.0mW  delta_x=-1.21mm  →  vc=58.0 m/s  (best: 60.0 m/s) **********
+[ITER  4  |  eval 104/150]  ΔZS=0.00  Δ2D=2.81  P_2D=44.1mW  P_ZS=0.0mW  delta_x=-3.39mm  →  vc=59.0 m/s  (best: 60.0 m/s)
+
+
+*** best 2DMOT performance***
+[INIT  |  eval  55/150]  ΔZS=0.00  Δ2D=2.70  P_2D=45.6mW  P_ZS=0.0mW  delta_x=2.39mm  →  vc=60.0 m/s  (best: 60.0 m/s)
+[INIT  |  eval  40/150]  ΔZS=0.00  Δ2D=2.72  P_2D=46.5mW  P_ZS=0.0mW  delta_x=-1.41mm  →  vc=60.0 m/s  (best: 60.0 m/s) ← NEW BEST
+[INIT  |  eval  24/150]  ΔZS=0.00  Δ2D=2.81  P_2D=47.1mW  P_ZS=0.0mW  delta_x=-1.65mm  →  vc=61.0 m/s  (best: 61.0 m/s) ← NEW BEST
+
+[INIT  |  eval  40/150]  ΔZS=0.00  Δ2D=2.80  P_2D=53.5mW  P_ZS=0.0mW  delta_x=-1.41mm  →  vc=64.0 m/s  (best: 64.0 m/s) ← NEW BEST 
+
+
+1. b. 2DMOT w/ N=7
+
+[INIT  |  eval   3/150]  ΔZS=0.00  Δ2D=2.85  P_2D=46.3mW  P_ZS=0.0mW  delta_x=-2.86mm  →  vc=54.0 m/s  (best: 54.0 m/s) ← NEW BEST
+[INIT  |  eval  20/150]  ΔZS=0.00  Δ2D=2.93  P_2D=54.5mW  P_ZS=0.0mW  delta_x=2.76mm  →  vc=56.0 m/s  (best: 56.0 m/s) ← NEW BEST
+
+[INIT  |  eval  52/150]  ΔZS=0.00  Δ2D=2.84  P_2D=49.2mW  P_ZS=0.0mW  delta_x=0.74mm  →  vc=57.0 m/s  (best: 58.0 m/s)
+[INIT  |  eval  40/150]  ΔZS=0.00  Δ2D=2.80  P_2D=53.5mW  P_ZS=0.0mW  delta_x=-1.41mm  →  vc=58.0 m/s  (best: 58.0 m/s) ← NEW BEST
+[INIT  |  eval  67/150]  ΔZS=0.00  Δ2D=2.79  P_2D=53.5mW  P_ZS=0.0mW  delta_x=2.81mm  →  vc=59.0 m/s  (best: 59.0 m/s) ← NEW BEST
+
+### in essence, looks like adding gradient doesn't help unless we bump up 2DMOT power like crazy. e.g. the x=-1.41mm, 53.5mW example is repeated in both N=7 and 6 
+but 6 gives 64m/s so there it is more optimal. Looks like N=5 is also worth exploring
+
+
+2. w/ AZS
+
+a. N = 6
+
+[INIT  |  eval  62/150]  ΔZS=4.97  Δ2D=2.74  P_2D=42.3mW  P_ZS=99.8mW  delta_x=-2.60mm  →  vc=155.0 m/s  (best: 158.0 m/s)
+
+[INIT  |  eval  16/150]  ΔZS=5.03  Δ2D=2.74  P_2D=42.3mW  P_ZS=106.5mW  delta_x=-2.34mm  →  vc=156.0 m/s  (best: 156.0 m/s) ← NEW BEST
+
+[INIT  |  eval  38/150]  ΔZS=5.17  Δ2D=2.74  P_2D=42.3mW  P_ZS=113.2mW  delta_x=-1.64mm  →  vc=158.0 m/s  (best: 158.0 m/s) ← NEW BEST
+
+
+
+2 b. N = 7
+
+[INIT  |  eval  18/150]  ΔZS=4.69  Δ2D=2.85  P_2D=46.3mW  P_ZS=106.9mW  delta_x=3.41mm  →  vc=154.0 m/s  (best: 159.0 m/s)
+
+
+[INIT  |  eval  43/150]  ΔZS=4.59  Δ2D=2.85  P_2D=46.3mW  P_ZS=104.1mW  delta_x=-2.68mm  →  vc=157.0 m/s  (best: 161.0 m/s)
+[INIT  |  eval   3/150]  ΔZS=4.71  Δ2D=2.85  P_2D=46.3mW  P_ZS=105.0mW  delta_x=-2.86mm  →  vc=158.0 m/s  (best: 158.0 m/s) ← NEW BEST
+
+[INIT  |  eval  14/150]  ΔZS=4.95  Δ2D=2.85  P_2D=46.3mW  P_ZS=113.3mW  delta_x=2.67mm  →  vc=159.0 m/s  (best: 159.0 m/s) ← NEW BEST
+
+[INIT  |  eval  21/150]  ΔZS=5.02  Δ2D=2.85  P_2D=46.3mW  P_ZS=111.2mW  delta_x=0.69mm  →  vc=160.0 m/s  (best: 160.0 m/s)
+[INIT  |  eval  20/150]  ΔZS=4.77  Δ2D=2.85  P_2D=46.3mW  P_ZS=123.8mW  delta_x=2.76mm  →  vc=160.0 m/s  (best: 160.0 m/s) ← NEW BEST
+
+[INIT  |  eval  29/150]  ΔZS=4.94  Δ2D=2.85  P_2D=46.3mW  P_ZS=115.0mW  delta_x=0.73mm  →  vc=161.0 m/s  (best: 161.0 m/s)
+[INIT  |  eval  27/150]  ΔZS=4.92  Δ2D=2.85  P_2D=46.3mW  P_ZS=122.4mW  delta_x=2.80mm  →  vc=161.0 m/s  (best: 161.0 m/s) ← NEW BEST
+
+
+[INIT  |  eval  58/150]  ΔZS=4.98  Δ2D=2.85  P_2D=46.3mW  P_ZS=119.3mW  delta_x=-1.21mm  →  vc=163.0 m/s  (best: 163.0 m/s) ← NEW BEST
+[INIT  |  eval  82/150]  ΔZS=5.02  Δ2D=2.85  P_2D=46.3mW  P_ZS=123.6mW  delta_x=-1.35mm  →  vc=164.0 m/s  (best: 164.0 m/s) ← NEW BEST
+
+
+Best: (mW)
+
+5.2, 2.85 | 123.6, 46.3 | vc ~ 165m/s

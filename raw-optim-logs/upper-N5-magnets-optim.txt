@@ -1,0 +1,46 @@
+MODEL:  Upper bound -- s_eff model (scattering_rate_multi in upper/physics.py)
+FIELD:  magpylib permanent NdFeB magnets, N=5 per stack, ~35 G/cm
+------------------------------------------------------------------------
+
+
+
+Optimizing magnet position at 35mW (position about center point between CF40 and entry to chamber)
+
+1. 2DMOT:
+
+away from CF40:
+[INIT  |  eval   6/150]  ΔZS=0.00  Δ2D=2.43  P_2D=35.0mW  P_ZS=0.0mW  delta_x=1.78mm  →  vc=50.0 m/s  (best: 50.0 m/s) ← NEW BEST
+[ITER  1  |  eval 101/150]  ΔZS=0.00  Δ2D=2.42  P_2D=35.0mW  P_ZS=0.0mW  delta_x=1.49mm  →  vc=51.0 m/s  (best: 53.0 m/s)
+[INIT  |  eval  10/150]  ΔZS=0.00  Δ2D=2.41  P_2D=35.0mW  P_ZS=0.0mW  delta_x=0.20mm  →  vc=52.0 m/s  (best: 52.0 m/s) ← NEW BEST *** might just be absolute best.
+
+towards CF40:
+
+[INIT  |  eval  58/150]  ΔZS=0.00  Δ2D=2.46  P_2D=35.0mW  P_ZS=0.0mW  delta_x=-0.35mm  →  vc=52.0 m/s  (best: 52.0 m/s)
+[INIT  |  eval  35/150]  ΔZS=0.00  Δ2D=2.41  P_2D=35.0mW  P_ZS=0.0mW  delta_x=-0.61mm  →  vc=52.0 m/s  (best: 52.0 m/s) ***
+[INIT  |  eval  42/150]  ΔZS=0.00  Δ2D=2.46  P_2D=35.0mW  P_ZS=0.0mW  delta_x=-1.03mm  →  vc=52.0 m/s  (best: 52.0 m/s) ***
+[INIT  |  eval  61/150]  ΔZS=0.00  Δ2D=2.47  P_2D=35.0mW  P_ZS=0.0mW  delta_x=-1.15mm  →  vc=52.0 m/s  (best: 52.0 m/s)
+[INIT  |  eval  70/150]  ΔZS=0.00  Δ2D=2.44  P_2D=35.0mW  P_ZS=0.0mW  delta_x=-1.97mm  →  vc=52.0 m/s  (best: 52.0 m/s)
+[INIT  |  eval  79/150]  ΔZS=0.00  Δ2D=2.45  P_2D=35.0mW  P_ZS=0.0mW  delta_x=-1.04mm  →  vc=53.0 m/s  (best: 53.0 m/s) ← NEW BEST
+[ITER 11  |  eval 111/150]  ΔZS=0.00  Δ2D=2.44  P_2D=35.0mW  P_ZS=0.0mW  delta_x=-1.39mm  →  vc=53.0 m/s  (best: 53.0 m/s)
+(absolute best so far!)
+
+For all points towards CF40: we keep detuning b/w 2.4 and 2.5 to achieve best performance
+
+2. w/ AZS
+
+
+
+[INIT  |  eval  32/150]  ΔZS=4.47  Δ2D=2.45  P_2D=35.0mW  P_ZS=86.4mW  delta_x=-3.68mm  →  vc=147.0 m/s  (best: 147.0 m/s) ← NEW BEST
+[INIT  |  eval  42/150]  ΔZS=4.54  Δ2D=2.45  P_2D=35.0mW  P_ZS=96.2mW  delta_x=-4.00mm  →  vc=149.0 m/s  (best: 149.0 m/s) ← NEW BEST
+[INIT  |  eval  89/150]  ΔZS=4.65  Δ2D=2.45  P_2D=35.0mW  P_ZS=101.2mW  delta_x=-2.91mm  →  vc=150.0 m/s  (best: 150.0 m/s) ← NEW BEST
+[ITER 24  |  eval 124/150]  ΔZS=4.51  Δ2D=2.45  P_2D=35.0mW  P_ZS=97.8mW  delta_x=-3.74mm  →  vc=149.0 m/s  (best: 150.0 m/s)
+
+
+*** with all params: ***
+[INIT  |  eval  46/150]  ΔZS=4.77  Δ2D=2.39  P_2D=39.5mW  P_ZS=96.7mW  delta_x=-0.53mm  →  vc=150.0 m/s  (best: 150.0 m/s) ← NEW BEST
+
+
+
+*** updated: 7.1 radius ***
+
+[INIT  |  eval  33/150]  ΔZS=4.61  Δ2D=2.32  P_2D=38.1mW  P_ZS=96.8mW  delta_x=2.39mm  →  vc=149.0 m/s  (best: 149.0 m/s) ← NEW BEST

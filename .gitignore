@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+*.pyo
+
+# runner.py output (trajectories, scatter plots, CSV)
+**/results/capture/
+
+# Bayesian optimisation output
+**/optim-results/
+
+# large trajectory files anywhere
+*.npz
+*.csv

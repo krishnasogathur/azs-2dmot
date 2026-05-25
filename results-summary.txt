@@ -1,0 +1,83 @@
+ZS + 2DMOT optimisation results — full summary
+===============================================
+
+Two models bracket the true multi-beam scattering rate (see README.md and physics.py
+files for the formulas). The true capture velocity lies between lower/ and upper/ results.
+
+Full raw logs are in raw-optim-logs/. Optimisation was done with Bayesian optimisation
+(scikit-optimize gp_minimize, 100 random init + 50 BO iterations) via optim_2dmot.py
+(Stage 1, ZS off) followed by optim_zs_magnets.py (Stage 2, ZS on).
+
+Decided experimental detuning: Δ_ZS ≈ 4.5 Γ (lies between lower and upper optima).
+
+
+LOWER MODEL  (shared saturation — lower bound on scattering rate)
+------------------------------------------------------------------
+Magnet geometry: N=5 per stack, ≈ 35 G/cm radial gradient (lower/magnets.py, B_field)
+
+  2DMOT only (ZS off):
+    Δ_2D ≈ 2.18–2.27 Γ,   P_2D ≈ 37–38 mW   →  v_c ~ 39–42 m/s
+
+  ZS + 2DMOT (N=5):
+    Δ_ZS ≈ 4.0–4.3 Γ,    Δ_2D ≈ 2.2–2.3 Γ
+    P_ZS ≈ 85–94 mW,     P_2D ≈ 37–38 mW   →  v_c ~ 125–131 m/s
+
+  Representative params loaded in lower/runner.py and lower/plotting.py:
+    Δ_ZS = 4.2 Γ,  P_ZS = 90 mW,  Δ_2D = 2.27 Γ,  P_2D = 37.5 mW
+
+Magnet geometry: N=6 per stack, ≈ 42 G/cm (lower/magnets.py, make_B_field)
+
+  2DMOT only (ZS off):
+    Δ_2D ≈ 2.41–2.58 Γ,   P_2D ≈ 46–48 mW   →  v_c ~ 51–54 m/s
+
+  ZS + 2DMOT (N=6):
+    NOT RUN. lower/optim_zs_magnets.py is configured and ready for this run.
+    Fixed params for Stage 2: Δ_2D = 2.58 Γ, P_2D = 47.5 mW, δx = 2.76 mm.
+
+
+UPPER MODEL  (s_eff — upper bound, overestimates in our regime)
+----------------------------------------------------------------
+Note: upper model N=5 runs used the same magnet geometry as lower/ (35 G/cm, N=5).
+      upper/magnets.py is configured for N=6; the N=5 upper results below are historical.
+
+Magnet geometry: N=5 per stack, ≈ 35 G/cm (same geometry as lower/ N=5)
+
+  2DMOT only (ZS off):
+    Δ_2D ≈ 2.40–2.50 Γ,   P_2D ≈ 35 mW    →  v_c ~ 51–53 m/s
+
+  ZS + 2DMOT (N=5):
+    Δ_ZS ≈ 4.45–4.65 Γ,   Δ_2D ≈ 2.32–2.45 Γ
+    P_ZS ≈ 86–102 mW,     P_2D ≈ 35–40 mW  →  v_c ~ 147–150 m/s
+
+Magnet geometry: N=6 per stack, ≈ 42 G/cm (upper/magnets.py, B_field / make_B_field)
+
+  2DMOT only (ZS off):
+    Δ_2D ≈ 2.70–2.81 Γ,   P_2D ≈ 42–53 mW  →  v_c ~ 60–64 m/s
+
+  ZS + 2DMOT (N=6):
+    Δ_ZS ≈ 5.0–5.2 Γ,    Δ_2D ≈ 2.74 Γ
+    P_ZS ≈ 100–113 mW,   P_2D ≈ 42 mW     →  v_c ~ 155–158 m/s
+
+  Representative params loaded in upper/runner.py and upper/plotting.py:
+    Δ_ZS = 5.1 Γ,  P_ZS = 106 mW,  Δ_2D = 2.7 Γ,  P_2D = 42 mW
+
+Magnet geometry: N=7 per stack, ≈ 45 G/cm (explored under upper model only)
+
+  2DMOT only (ZS off):
+    Δ_2D ≈ 2.80–2.93 Γ,   P_2D ≈ 46–54 mW  →  v_c ~ 54–59 m/s
+
+  ZS + 2DMOT (N=7):
+    Δ_ZS ≈ 4.7–5.2 Γ,    Δ_2D ≈ 2.85 Γ
+    P_ZS ≈ 104–124 mW,   P_2D ≈ 46 mW     →  v_c ~ 157–165 m/s
+
+  N=7 ruled out: gain over N=6 is marginal and the upper model overestimates anyway.
+
+
+NOTES
+-----
+- True v_c lies between lower/ and upper/ values; upper model confirmed to overestimate.
+- N=5 vs N=6 decision is still open. Key missing data: lower-model ZS at N=6.
+- 2DMOT optimal detuning shifts upward with N because higher gradient needs larger restoring force.
+- ZS detuning is systematically higher in the upper model because s_eff overestimates the rate,
+  pushing the optimizer further from resonance to avoid over-saturation.
+- Gradient scales approximately linearly with N: N=5 → ~35 G/cm, N=6 → ~42 G/cm, N=7 → ~45 G/cm.

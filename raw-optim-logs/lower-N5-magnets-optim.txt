@@ -1,0 +1,77 @@
+MODEL:  Lower bound -- shared saturation (scattering_rate_multi in lower/physics.py)
+FIELD:  magpylib permanent NdFeB magnets, N=5 per stack, ~35 G/cm
+NOTE:   Also contains N=6 2DMOT-only results appended at the bottom.
+------------------------------------------------------------------------
+
+
+
+
+----
+
+
+1. 2DMOT optimization
+
+Getting very high 2DMOT trapping values for axial atoms; for those with transverse velocity, quite limited.
+
+[INIT  |  eval  67/150]  ΔZS=0.00  Δ2D=2.19  P_2D=37.4mW  P_ZS=0.0mW  delta_x=2.81mm  →  vc=39.8 m/s  (best: 39.8 m/s) ← NEW BEST
+
+[INIT  |  eval  67/150]  ΔZS=0.00  Δ2D=2.19  P_2D=38.3mW  P_ZS=0.0mW  delta_x=2.81mm  →  vc=41.0 m/s  (best: 41.0 m/s) ← NEW BEST
+
+[INIT  |  eval  86/150]  ΔZS=0.00  Δ2D=2.17  P_2D=37.7mW  P_ZS=0.0mW  delta_x=3.44mm  →  vc=41.0 m/s  (best: 41.0 m/s)
+
+[ITER  6  |  eval 106/150]  ΔZS=0.00  Δ2D=2.18  P_2D=38.3mW  P_ZS=0.0mW  delta_x=3.15mm  →  vc=42.1 m/s  (best: 42.1 m/s) ← NEW BEST
+
+
+
+w/ AZS @ 2.25 / 37mW 2DMOT:
+
+
+[INIT  |  eval   3/150]  ΔZS=4.00  Δ2D=2.27  P_2D=37.5mW  P_ZS=85.0mW  delta_x=-2.86mm  →  vc=125.0 m/s  (best: 125.0 m/s) ← NEW BEST
+[INIT  |  eval  14/150]  ΔZS=4.29  Δ2D=2.27  P_2D=37.5mW  P_ZS=89.1mW  delta_x=2.67mm  →  vc=128.0 m/s  (best: 128.0 m/s) ← NEW BEST
+
+[INIT  |  eval   3/150]  ΔZS=4.00  Δ2D=2.27  P_2D=37.5mW  P_ZS=89.7mW  delta_x=-2.86mm  →  vc=129.0 m/s  (best: 129.0 m/s) ← NEW BEST
+[INIT  |  eval  14/150]  ΔZS=4.29  Δ2D=2.27  P_2D=37.5mW  P_ZS=92.7mW  delta_x=2.67mm  →  vc=130.0 m/s  (best: 130.0 m/s) ← NEW BEST
+
+[INIT  |  eval  51/150]  ΔZS=4.22  Δ2D=2.27  P_2D=37.5mW  P_ZS=93.5mW  delta_x=0.25mm  →  vc=131.0 m/s  (best: 131.0 m/s) ← NEW BEST
+
+
+[INIT  |  eval  65/150]  ΔZS=3.94  Δ2D=2.27  P_2D=37.5mW  P_ZS=88.8mW  delta_x=-1.77mm  →  vc=129.0 m/s  (best: 129.0 m/s) ← NEW BEST
+
+[INIT  |  eval  70/150]  ΔZS=3.99  Δ2D=2.27  P_2D=37.5mW  P_ZS=90.3mW  delta_x=-1.56mm  →  vc=130.0 m/s  (best: 130.0 m/s) ← NEW BEST
+
+------
+
+global test: (all 5 params varied)
+
+[INIT  |  eval  14/150]  ΔZS=3.98  Δ2D=2.11  P_2D=32.1mW  P_ZS=89.3mW  delta_x=-0.61mm  →  vc=129.0 m/s  (best: 129.0 m/s) ← NEW BEST
+[ITER  3  |  eval 103/150]  ΔZS=4.25  Δ2D=2.18  P_2D=38.0mW  P_ZS=92.0mW  delta_x=1.32mm  →  vc=130.0 m/s  (best: 130.0 m/s) ← NEW BEST
+
+
+
+--------------
+
+
+Higher power for 5 magnets:
+
+
+2DMOT:
+
+
+[INIT  |  eval   6/150]  ΔZS=0.00  Δ2D=2.70  P_2D=48.2mW  P_ZS=0.0mW  delta_x=-3.94mm  →  vc=48.0 m/s  (best: 48.0 m/s) ← NEW BEST
+[INIT  |  eval  18/150]  ΔZS=0.00  Δ2D=2.48  P_2D=43.9mW  P_ZS=0.0mW  delta_x=3.41mm  →  vc=47.0 m/s  (best: 48.0 m/s)
+[ITER  1  |  eval 101/150]  ΔZS=0.00  Δ2D=2.43  P_2D=44.9mW  P_ZS=0.0mW  delta_x=3.17mm  →  vc=49.0 m/s  (best: 50.0 m/s)
+
+
+
+
+------------------
+
+6 magnets:
+
+2DMOT:
+
+[INIT  |  eval  20/150]  ΔZS=0.00  Δ2D=2.58  P_2D=47.5mW  P_ZS=0.0mW  delta_x=2.76mm  →  vc=54.0 m/s  (best: 54.0 m/s) ← NEW BEST
+[INIT  |  eval  86/150]  ΔZS=0.00  Δ2D=2.41  P_2D=46.1mW  P_ZS=0.0mW  delta_x=3.44mm  →  vc=51.0 m/s  (best: 54.0 m/s)
+
+
+

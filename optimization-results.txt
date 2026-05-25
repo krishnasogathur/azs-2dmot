@@ -1,0 +1,57 @@
+Optimization results — ZS + 2DMOT parameter ranges
+=====================================================
+
+Raw logs with full BO output are in raw-optim-logs/.
+See results-summary.txt for a fuller account including geometry notes.
+Decided experimental detuning: Δ_ZS ≈ 4.5 Γ  (lies between lower and upper optima).
+
+
+LOWER MODEL (shared saturation — lower bound on scattering rate)
+----------------------------------------------------------------
+Script: magnets-bayesian.py  (helper_funcs_noeff + new_magnetic_field.py)
+
+N=5 (~35 G/cm):
+  2DMOT only:   Δ_2D ≈ 2.18–2.27 Γ,  P_2D ≈ 37–38 mW
+  ZS + 2DMOT:   Δ_ZS ≈ 4.0–4.3 Γ,   Δ_2D ≈ 2.2–2.3 Γ,
+                P_ZS ≈ 85–94 mW,     P_2D ≈ 37–38 mW
+                → vc ~ 125–131 m/s
+
+N=6 (~42 G/cm):
+  2DMOT only:   Δ_2D ≈ 2.41–2.58 Γ,  P_2D ≈ 46–48 mW   → vc ~ 54 m/s
+  ZS + 2DMOT:   NOT RUN
+
+
+UPPER MODEL (s_eff — upper bound, overestimates in our regime)
+--------------------------------------------------------------
+Script: magnets-bayesian.py  (helper_funcs_eff + new_magnetic_field.py)
+Note: upper model N=5 runs used the same magnet geometry as lower/ N=5 (~35 G/cm).
+      upper/magnets.py in this repo is configured for N=6; N=5 upper is a historical result.
+
+N=5 (~35 G/cm):
+  2DMOT only:   Δ_2D ≈ 2.4–2.5 Γ,   P_2D ≈ 35 mW       → vc ~ 52–53 m/s
+  ZS + 2DMOT:   Δ_ZS ≈ 4.5–4.8 Γ,   Δ_2D ≈ 2.3–2.5 Γ,
+                P_ZS ≈ 86–102 mW,    P_2D ≈ 35–40 mW
+                → vc ~ 147–152 m/s
+
+N=6 (~42 G/cm):
+  2DMOT only:   Δ_2D ≈ 2.7–2.8 Γ,   P_2D ≈ 42–47 mW    → vc ~ 60–64 m/s
+  ZS + 2DMOT:   Δ_ZS ≈ 5.0–5.2 Γ,   Δ_2D ≈ 2.7 Γ,
+                P_ZS ≈ 100–113 mW,   P_2D ≈ 42 mW
+                → vc ~ 155–158 m/s
+
+N=7 (~45 G/cm):
+  2DMOT only:   Δ_2D ≈ 2.8–2.9 Γ,   P_2D ≈ 46–54 mW    → vc ~ 57–59 m/s
+  ZS + 2DMOT:   Δ_ZS ≈ 4.7–5.2 Γ,   Δ_2D ≈ 2.85 Γ,
+                P_ZS ≈ 104–124 mW,   P_2D ≈ 46 mW
+                → vc ~ 157–165 m/s
+  Note: N=7 explored only under upper model (overestimates; not a realistic target).
+
+
+NOTES
+-----
+- True vc lies between lower and upper bounds; Δ_ZS ≈ 4.5 Γ decided experimentally.
+- N=7 was ruled out — gain over N=6 is marginal and upper model overestimates anyway.
+- Decision between N=5 and N=6 is the open question; lower model ZS at N=6 not run.
+- 2DMOT detuning shifts upward with N because higher gradient needs larger restoring force.
+- ZS detuning is higher in upper model because s_eff overestimates rate → optimizer
+  pushes further from resonance to avoid over-saturation.
